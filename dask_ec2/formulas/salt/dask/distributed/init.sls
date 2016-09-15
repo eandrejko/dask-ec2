@@ -23,6 +23,12 @@ s3fs-install:
     - require:
       - sls: conda
 
+s3fs-install:
+  cmd.run:
+    - name: {{ install_prefix }}/bin/conda install s3fs -c conda-forge -y -q
+    - require:
+      - sls: conda
+
 distributed-install:
   pip.installed:
     - name: distributed
