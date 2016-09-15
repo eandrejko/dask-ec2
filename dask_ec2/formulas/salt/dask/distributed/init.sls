@@ -17,6 +17,12 @@ bokeh-install:
     - require:
       - sls: conda
 
+s3fs-install:
+  cmd.run:
+    - name: {{ install_prefix }}/bin/conda install s3fs -y -q
+    - require:
+      - sls: conda
+
 distributed-install:
   pip.installed:
     - name: distributed
